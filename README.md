@@ -322,3 +322,10 @@ This is a **single-process proof of concept**:
 - Expiry changes, cancellations, recipient preferences, and service eligibility must be maintained manually.
 ​
 Before customer use, add a durable data store, locking, controlled retries, delivery monitoring, secure credential management, recipient-preference handling, and automated updates from the authoritative application or CRM.
+
+
+## Author
+
+**<small>Vimeshika Shri : GitHub: [@VimeshikaShri](https://github.com/VimeshikaShri)</small>**
+
+---
