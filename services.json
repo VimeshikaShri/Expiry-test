@@ -1,0 +1,11 @@
+[
+  {
+    "service_id": "expiry-test-001",
+    "service_name": "Test service access",
+    "email": "replace-with-your-own-inbox@example.com",
+    "invoice_id": "replace-with-test-invoice-id",
+    "expiry_date": "2026-10-29",
+    "timezone": "Europe/Amsterdam",
+    "active": true
+  }
+]
