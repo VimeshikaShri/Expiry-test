@@ -2,9 +2,9 @@
 ​
 A lightweight Python script that sends email reminders **21, 14, and 7 days before a service expires**.
 ​
-This project demonstrates an external reminder workflow for a one-time purchase associated with a Chargebee test invoice. The expiry date is entered manually and can be independent of the invoice line item's service period.
+This project demonstrates an external reminder workflow for a one-time purchase associated with a RMS test invoice. The expiry date is entered manually and can be independent of the invoice line item's service period.
 ​
-> **Test use only.** This is not a native Chargebee feature, an official Chargebee integration, or a production-ready notification service.
+> **Test use only.** This is not a native feature, an official integration, or a production-ready notification service.
 ​
 ## Features
 ​
@@ -21,7 +21,7 @@ This project demonstrates an external reminder workflow for a one-time purchase 
 ## How It Works
 ​
 ```text
-Chargebee test purchase (optional context)
+RMS test purchase (optional context)
                   |
                   v
 Manually maintained service-expiry record
@@ -36,7 +36,7 @@ Dry-run preview OR external SMTP email
 Successful sends recorded in sent.json
 ```
 ​
-The script **does not call the Chargebee API**, read a CRM, retrieve invoice service periods, or change any Chargebee data. The invoice ID is a reference included in the email, not a validated link or automation trigger.
+The script **does not call the RMS API**, read a CRM, retrieve invoice service periods, or change any RMS data. The invoice ID is a reference included in the email, not a validated link or automation trigger.
 ​
 ## Requirements
 ​
@@ -63,16 +63,16 @@ Clone this repository or download and extract it. Open a terminal in the directo
 ​
 The examples below use `python3`. On Windows, use `py` or `python`, depending on your installation.
 ​
-### 2. Optional: Create a Chargebee test purchase
+### 2. Optional: Create a RMS test purchase
 ​
-If you want to associate the test with a Chargebee purchase:
+If you want to associate the test with a RMS purchase:
 ​
-1. Switch to your Chargebee **Test site**.
+1. Switch to your RMS **Test site**.
 2. Create a test customer using an inbox you control.
 3. Add a one-time Charge to that customer.
 4. Note the resulting invoice ID for the expiry record.
 ​
-Do not use a live customer or live purchase for this proof of concept. Chargebee is not required to run the script.
+Do not use a live customer or live purchase for this proof of concept. RMS is not required to run the script.
 ​
 ### 3. Configure a service record
 ​
@@ -280,13 +280,13 @@ The script sends only on the exact reminder date. If the daily job is missed, it
 | Timezone not found | Install system timezone data or the `tzdata` package. |
 | Email not in inbox | Recipient address, spam folder, and provider delivery status. |
 ​
-## Chargebee Testing Boundaries
+## RMS Testing Boundaries
 ​
-- Chargebee Time Machine does not advance this script's clock.
-- Emails sent by this script do not appear in Chargebee email logs.
-- SMTP settings in Chargebee do not configure this script.
+- RMS Time Machine does not advance this script's clock.
+- Emails sent by this script do not appear in RMS email logs.
+- SMTP settings in RMS do not configure this script.
 - The script does not create Charges, collect payments, renew services, or cancel subscriptions.
-- There is no automatic synchronization with Chargebee or a CRM.
+- There is no automatic synchronization with RMS or a CRM.
 ​
 ## Security and Repository Hygiene
 ​
@@ -322,8 +322,3 @@ This is a **single-process proof of concept**:
 - Expiry changes, cancellations, recipient preferences, and service eligibility must be maintained manually.
 ​
 Before customer use, add a durable data store, locking, controlled retries, delivery monitoring, secure credential management, recipient-preference handling, and automated updates from the authoritative application or CRM.
-​
-## References
-- [Chargebee Email Notifications](https://www.chargebee.com/docs/billing/2.0/customers/email-notifications-v2)
-- [Chargebee Charges](https://www.chargebee.com/docs/billing/2.0/product-catalog/charges)
-​
